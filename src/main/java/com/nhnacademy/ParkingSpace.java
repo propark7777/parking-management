@@ -1,5 +1,6 @@
 package com.nhnacademy;
 
 public class ParkingSpace {
-    String location;
+    String code;
+    Car car;
 }

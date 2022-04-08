@@ -1,3 +1,4 @@
-com\nhnacademy\Car.class
 com\nhnacademy\ParkingService.class
 com\nhnacademy\ParkingSpace.class
+com\nhnacademy\Car.class
+com\nhnacademy\CarRepository.class
