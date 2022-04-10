@@ -1,6 +1,7 @@
 package com.nhnacademy.youngho.parking;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.*;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -60,6 +61,17 @@ class ParkingSystemTest {
 
         assertThat(exit1.checkExiting(car1)).isEqualTo("A1234");
         assertThat(exit2.checkExiting(car2)).isEqualTo("B5678");
+    }
+
+    @DisplayName("대형차 주차 불가")
+    @Test
+    void checkFullSizeCar(){
+        Car fullSizeCar = new FullSizeCar("B1234");
+        Entrance entrance = new Entrance();
+
+        assertThatThrownBy(()->entrance.checkEntering(fullSizeCar))
+            .isInstanceOf(IllegalCarTypeException.class);
+
     }
     
     

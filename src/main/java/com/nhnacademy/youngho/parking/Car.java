@@ -42,6 +42,9 @@ public class Car {
     }
 
     public ParkingSpace parkTo(String areaCode){
+        if(this instanceof FullSizeCar){
+            throw new IllegalCarTypeException();
+        }
         return new ParkingSpace(areaCode,new Car(this.plate));
     }
 
