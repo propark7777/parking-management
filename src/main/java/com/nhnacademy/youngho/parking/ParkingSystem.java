@@ -5,11 +5,21 @@ import java.util.List;
 public class ParkingSystem {
     ParkingLot parkingLot = new ParkingLot();
     ParkingInfo parkingInfo = new ParkingInfo();
-    FeePolicy feePolicy1 = new FeePolicy1();
+    FeePolicy feePolicy;
+
 
     public FeePolicy getFeePolicy() {
-        return feePolicy1;
+        return feePolicy;
     }
+
+    public ParkingSystem(){
+
+    }
+
+    public ParkingSystem(FeePolicy feePolicy){
+        this.feePolicy = feePolicy;
+    }
+
 
     public boolean checkCarInParkingLot(ParkingSpace parkingSpace){
         List<ParkingSpace> spaces = parkingLot.getSpaces();
@@ -43,7 +53,7 @@ public class ParkingSystem {
     }
 
     public void exit(Car car){
-        car.payFee(feePolicy1);
+        car.payFee(feePolicy);
         removeParkingInfo(car);
     }
 

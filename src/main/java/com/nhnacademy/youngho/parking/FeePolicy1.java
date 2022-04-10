@@ -26,7 +26,9 @@ public class FeePolicy1 implements FeePolicy{
         if(day == 0 && minute <= 30){
             fee = 1_000L;
         }
-
+        if (car instanceof CompactCar){
+            fee = (long) (fee * 0.5);
+        }
 
         return fee;
     }
